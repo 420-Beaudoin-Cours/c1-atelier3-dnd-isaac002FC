@@ -9,12 +9,6 @@ import javax.swing.text.html.ImageView;
 
 public class Controller {
 
-    public void initialize(){
-
-
-
-    }
-
     public void txfSourceDragDetected(MouseEvent mouseEvent) {
 
 
@@ -58,6 +52,21 @@ public class Controller {
     }
 
     public void cmbTargetDragOver(DragEvent dragEvent) {
+
+        dragEvent.acceptTransferModes(TransferMode.ANY);
+
+    }
+
+    public void txfTargetDragDropped(DragEvent dragEvent) {
+
+        TextField refSource = (TextField) dragEvent.getGestureSource();
+        TextField refTarget = (TextField) dragEvent.getGestureTarget();
+
+        refTarget.setText(refSource.getText());
+
+    }
+
+    public void txfTargetDragOver(DragEvent dragEvent) {
 
         dragEvent.acceptTransferModes(TransferMode.ANY);
 
